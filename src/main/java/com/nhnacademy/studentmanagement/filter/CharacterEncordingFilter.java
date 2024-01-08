@@ -1,8 +1,14 @@
 package com.nhnacademy.studentmanagement.filter;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
+@WebFilter(
+        urlPatterns = "/*",
+        initParams = @WebInitParam(name = "encoding", value = "UTF-8")
+)
 public class CharacterEncordingFilter implements Filter {
     private  String encoding;
 

@@ -22,3 +22,14 @@
     width: 50px;
     text-align: center;
 }
+#studentView{
+    border: 1px solid black;
+}
+#studentView thead{
+    font-size: 30px;
+}
+#studentView th, #studentView td{
+    border: 1px solid black;
+    width: 100px;
+    text-align: center;
+}

@@ -22,7 +22,9 @@
         <tbody>
             <tr>
                 <td>ID</td>
-                <td><input type="text" name="id"></td>
+                <td><label>
+                    <input type="text" name="id">
+                </label></td>
             </tr>
             <tr>
                 <td>이름</td>
@@ -32,14 +34,20 @@
                 <td>성별</td>
                 <td>
                     <hgroup>
-                        <input type="radio" name="gender"/>남
-                        <input type="radio" name="gender"/>여
+                        <label>
+                            <input type="radio" name="gender" value="M"/>
+                        </label>남
+                        <label>
+                            <input type="radio" name="gender" value="F"/>
+                        </label>여
                     </hgroup>
                 </td>
             </tr>
             <tr>
                 <td>나이</td>
-                <td><input type="text" name="age"> </td>
+                <td><label>
+                    <input type="text" name="age">
+                </label></td>
             </tr>
         </tbody>
     </table>

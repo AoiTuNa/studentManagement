@@ -1,5 +1,6 @@
 package com.nhnacademy.studentmanagement.servlet;
 
+import com.nhnacademy.studentmanagement.students.Student;
 import com.nhnacademy.studentmanagement.students.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 @Slf4j
 @WebServlet(name = "studentRegisterServlet", urlPatterns = "/student/register")
@@ -25,12 +27,22 @@ public class StudentRegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/student/register,jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/student/register.jsp");
         dispatcher.forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        if(Objects.isNull(request.getParameter("id"))||Objects.isNull(request.getParameter("name"))||Objects.isNull(request.getParameter("gender"))||Objects.isNull(request.getParameter("age"))){
+            RequestDispatcher rd = request.getRequestDispatcher("/student/register.jsp");
+            rd.forward(request,response);
+        }
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        Student.Gender gender = Student.Gender.valueOf(request.getParameter("gender"));
+        int age = Integer.parseInt(request.getParameter("age"));
 
+        studentRepository.save(new Student(id,name,gender,age));
+        response.sendRedirect("/student/view?id=student1");
     }
 }

@@ -33,7 +33,7 @@
                     <td>${studnet.name}</td>
                     <td>${studnet.gender}</td>
                     <td>${studnet.age}</td>
-                    <td><a href="">조회</a> </td>
+                    <td><a href="/student/view?id=${studnet.id}">조회</a> </td>
                 </tr>
             </c:forEach>
         </tbody>
