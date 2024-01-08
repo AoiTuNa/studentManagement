@@ -1,0 +1,24 @@
+.student{
+    font-size: 30px;
+}
+
+#studentTable{
+    border: 1px solid black;
+}
+
+#studentTable th, #studentTable td {
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+#studentRegister{
+    border: 1px solid black;
+}
+#studentRegister thead{
+    font-size: 30px;
+}
+#studentRegister th, #studentRegister td{
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
