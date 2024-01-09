@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1 class="student">학생 리스트</h1>
-    <p><a href="/student/register">학생(등록)</a> </p>
+    <p><a href="/student/register.do">학생(등록)</a> </p>
     <table id="studentTable">
         <thead>
             <tr>
@@ -33,7 +33,7 @@
                     <td>${studnet.name}</td>
                     <td>${studnet.gender}</td>
                     <td>${studnet.age}</td>
-                    <td><a href="/student/view?id=${studnet.id}">조회</a> </td>
+                    <td><a href="/student/view.do?id=${studnet.id}">조회</a> </td>
                 </tr>
             </c:forEach>
         </tbody>

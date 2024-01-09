@@ -30,7 +30,9 @@ public class StudentListServlet extends HttpServlet {
         List<Student> studnetList = studentRepository.getStudents();
 
         request.setAttribute("studentList",studnetList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/student/list.jsp");
+        String viewPath = "/student/list.jsp";
+        request.setAttribute("view",viewPath);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request,response);
     }
 }

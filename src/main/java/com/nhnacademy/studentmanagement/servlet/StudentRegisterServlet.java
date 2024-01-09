@@ -43,6 +43,8 @@ public class StudentRegisterServlet extends HttpServlet {
         int age = Integer.parseInt(request.getParameter("age"));
 
         studentRepository.save(new Student(id,name,gender,age));
-        response.sendRedirect("/student/view?id=student1");
+        String viewPath = "/student/list.do";
+        request.setAttribute("view",viewPath);
+        response.sendRedirect(viewPath);
     }
 }

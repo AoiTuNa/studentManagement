@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<form method="post" action="">
 <table id="studentView">
     <thead>
         <tr>
@@ -46,17 +45,20 @@
     </tbody>
 </table>
 <ul>
-    <li><a href="/student/list">리스트</a></li>
+    <li><a href="/student/list.do">리스트</a></li>
     <li>
-        <!-- todo ${update_link} 설정 c:url -->
+        <c:url var="update_link" value="/student/update.do">
+            <c:param name="id" value="${student.id}"/>
+        </c:url>
         <a href="${update_link}">수정</a>
     </li>
     <li>
-        <input type="submit" name="delete" value="삭제">
-        <!-- todo 삭제버튼 구현, method=post-->
+        <form action="/student/delete.do">
+            <input type="hidden" name="id" value="${student.id}">
+            <button type="submit" formmethod="post">삭제</button>
+        </form>
      </li>
-
  </ul>
-</form>
+
 </body>
 </html>

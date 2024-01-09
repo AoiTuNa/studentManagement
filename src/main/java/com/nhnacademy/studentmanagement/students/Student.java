@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 @Getter
+@Setter
 public class Student implements Serializable {
     //TODO 일단 Setter써보고 문제있으면 바꾸자구요!!
     public enum Gender{
