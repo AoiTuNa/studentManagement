@@ -1,6 +1,7 @@
 package com.nhnacademy.studentmanagement.listener;
 
 import com.nhnacademy.studentmanagement.exception.StudentMapException;
+import com.nhnacademy.studentmanagement.students.JsonStudentRepository;
 import com.nhnacademy.studentmanagement.students.MapStudentRepository;
 import com.nhnacademy.studentmanagement.students.Student;
 import com.nhnacademy.studentmanagement.students.StudentRepository;
@@ -19,7 +20,7 @@ public class WebApplicationListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce){
         ServletContext context = sce.getServletContext();
-        StudentRepository studentRepository = new MapStudentRepository();
+        StudentRepository studentRepository = new JsonStudentRepository();
         Random random = new Random();
 
         for(int i =1; i<=10; i++){

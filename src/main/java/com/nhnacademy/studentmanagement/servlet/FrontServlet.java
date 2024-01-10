@@ -35,7 +35,7 @@ public class FrontServlet extends HttpServlet {
                 //todo `redirect:`로 시작하면 redirect 처리.
             } else {
                 RequestDispatcher dispatcher = req.getRequestDispatcher(view);
-                dispatcher.forward(req,resp);
+                dispatcher.include(req,resp);
                 //todo redirect 아니면 JSP에게 view 처리를 위임하여 그 결과를 include 처리.
 
             }
@@ -58,7 +58,7 @@ public class FrontServlet extends HttpServlet {
         if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method) ){
             command = new StudentListController();
         }
-        if("/student/delete.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        if("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentDeleteController();
         }
         if("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
@@ -83,8 +83,7 @@ public class FrontServlet extends HttpServlet {
     }
 
 }
-/*
-@Slf4j
+/*@Slf4j
 @WebServlet(name = "frontServlet", urlPatterns = "*.do")
 public class FrontServlet extends HttpServlet {
     private static final String REDIRECT_PREFIX="redirect";

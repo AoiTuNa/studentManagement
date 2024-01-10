@@ -38,7 +38,7 @@
                         <input type="text" name="id" value="${student.id}" required/>
                     </c:when>
                     <c:otherwise>
-                        <input type="text" name="id" value="${student.id}" required disabled/>
+                        <input type="text" name="id" value="${student.id}" required readonly/>
                     </c:otherwise>
                 </c:choose><label>
 

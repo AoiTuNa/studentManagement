@@ -1,5 +1,6 @@
 package com.nhnacademy.studentmanagement.controller;
 
+import com.nhnacademy.studentmanagement.Annotations.RequestMapping;
 import com.nhnacademy.studentmanagement.students.Student;
 import com.nhnacademy.studentmanagement.students.StudentRepository;
 
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
+@RequestMapping(value = "/student/register.do",method = RequestMapping.Method.POST)
 public class StudentRegisterPostController implements Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -20,6 +22,6 @@ public class StudentRegisterPostController implements Command{
         Student.Gender gender = Student.Gender.valueOf(request.getParameter("gender"));
         int age = Integer.parseInt(request.getParameter("age"));
         studentRepository.save(new Student(id,name,gender,age));
-        return "/student/list.do";
+        return "redirect:/student/list.do";
     }
 }
